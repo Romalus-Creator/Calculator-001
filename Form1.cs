@@ -21,6 +21,10 @@ namespace Calculator_001
             {
                 txtDisplay.Text = "1";
             }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = "1";
+            }
             else
             {
                 txtDisplay.Text = txtDisplay.Text + "1";
@@ -30,6 +34,10 @@ namespace Calculator_001
         private void btn2_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = "2";
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
             {
                 txtDisplay.Text = "2";
             }
@@ -45,6 +53,10 @@ namespace Calculator_001
             {
                 txtDisplay.Text = "3";
             }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = "3";
+            }
             else
             {
                 txtDisplay.Text = txtDisplay.Text + "3";
@@ -54,6 +66,10 @@ namespace Calculator_001
         private void btn4_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = "4";
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
             {
                 txtDisplay.Text = "4";
             }
@@ -68,6 +84,10 @@ namespace Calculator_001
             {
                 txtDisplay.Text = "5";
             }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = "5";
+            }
             else
             {
                 txtDisplay.Text = txtDisplay.Text + "5";
@@ -76,6 +96,10 @@ namespace Calculator_001
         private void btn6_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = "6";
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
             {
                 txtDisplay.Text = "6";
             }
@@ -90,6 +114,10 @@ namespace Calculator_001
             {
                 txtDisplay.Text = "7";
             }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = "7";
+            }
             else
             {
                 txtDisplay.Text = txtDisplay.Text + "7";
@@ -98,6 +126,10 @@ namespace Calculator_001
         private void btn8_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = "8";
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
             {
                 txtDisplay.Text = "8";
             }
@@ -112,6 +144,10 @@ namespace Calculator_001
             {
                 txtDisplay.Text = "9";
             }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = "9";
+            }
             else
             {
                 txtDisplay.Text = txtDisplay.Text + "9";
@@ -121,6 +157,10 @@ namespace Calculator_001
         private void btn0_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = "0";
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
             {
                 txtDisplay.Text = "0";
             }
@@ -183,34 +223,60 @@ namespace Calculator_001
         {
             firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "+";
-            txtDisplay.Text = "0";
+            if (totalNumber > 0)
+            {
+                txtDisplay.Text = totalNumber.ToString();
+            }
+            else {
+                txtDisplay.Text = "0";
+            }
         }
 
         private void btnSubtraction_Click(object sender, EventArgs e)
         {
             firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "-";
-            txtDisplay.Text = "0";
+            if (totalNumber > 0)
+            {
+                txtDisplay.Text = totalNumber.ToString();
+            }
+            else {
+                    txtDisplay.Text = "0";
+            }
         }
 
         private void btnMultiplication_Click(object sender, EventArgs e)
         {
             firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "*";
-            txtDisplay.Text = "0";
+            if (totalNumber > 0)
+            {
+                        txtDisplay.Text = totalNumber.ToString();
+            }
+            else {
+                        txtDisplay.Text = "0";
+            }
         }
 
         private void btnDivision_Click(object sender, EventArgs e)
         {
             firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "/";
-            txtDisplay.Text = "0";
+            if (totalNumber > 0)
+            {
+                            txtDisplay.Text = totalNumber.ToString();
+            }
+            else {
+                   txtDisplay.Text = "0";
+            }
         }
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
             // need to make the backspace button read the txtDisplay.Text, then subtract the far right char. good luck https://stackoverflow.com/questions/3566830/what-method-in-the-string-class-returns-only-the-first-n-characters
-            strings.Left(txtDisplay.Text, txtDisplay.Text.Length);
+
+            string substring = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
+            txtDisplay.Text = substring;
         }
 
         /*Both buttons are a way to erase or clear an entry. 
@@ -222,12 +288,14 @@ namespace Calculator_001
             txtDisplay.Text = "0";
             firstNumber = 0;
             secondNumber = 0;
+            totalNumber = 0;
         }
 
         private void btnClearEntry_Click(object sender, EventArgs e)
         {
             txtDisplay.Text = "0";
             secondNumber = 0;
+            totalNumber = 0;
         }
 
         private void btnPlusOrMinus_Click(object sender, EventArgs e)
