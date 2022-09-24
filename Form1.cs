@@ -15,6 +15,7 @@ namespace Calculator_001
         private decimal secondNumber;
         private string oper;
         private Rectangle originalFormSize;
+        private Rectangle txtDisplay_OriginalRectangle;
         private Rectangle btn1_OriginalRectangle;
         private Rectangle btn2_OriginalRectangle;
         private Rectangle btn3_OriginalRectangle;
@@ -333,6 +334,7 @@ namespace Calculator_001
         private void Calculator01_Load(object sender, EventArgs e)
         {
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
+            txtDisplay_OriginalRectangle = new Rectangle(txtDisplay.Location.X, txtDisplay.Location.Y, txtDisplay.Width, txtDisplay.Height);
             btn1_OriginalRectangle = new Rectangle(btn1.Location.X, btn1.Location.Y, btn1.Width, btn1.Height);
             btn2_OriginalRectangle = new Rectangle(btn2.Location.X, btn2.Location.Y, btn2.Width, btn2.Height);
             btn3_OriginalRectangle = new Rectangle(btn3.Location.X, btn3.Location.Y, btn3.Width, btn3.Height);
@@ -373,6 +375,7 @@ namespace Calculator_001
 
         private void Calculator01_Resize(object sender, EventArgs e)
         {
+            resizeControl(txtDisplay_OriginalRectangle,txtDisplay);
             resizeControl(btn1_OriginalRectangle, btn1);
             resizeControl(btn2_OriginalRectangle, btn2);
             resizeControl(btn3_OriginalRectangle, btn3);
@@ -393,6 +396,11 @@ namespace Calculator_001
             resizeControl(btnClear_OriginalRectangle, btnClear);
             resizeControl(btnClearEntry_OriginalRectangle, btnClearEntry);
             resizeControl(btnPlusOrMinus_OriginalRectangle, btnPlusOrMinus);
+        }
+
+        private void txtDisplay_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
