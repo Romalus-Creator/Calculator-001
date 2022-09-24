@@ -258,7 +258,8 @@
             // 
             // btn0
             // 
-            this.btn0.Location = new System.Drawing.Point(1, 386);
+            this.btn0.AutoSize = true;
+            this.btn0.Location = new System.Drawing.Point(34, 362);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(100, 74);
             this.btn0.TabIndex = 10;
@@ -270,6 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.btn0);
@@ -298,6 +300,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Roman\'s Calculator";
             this.Load += new System.EventHandler(this.Calculator01_Load);
+            this.Resize += new System.EventHandler(this.Calculator01_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
