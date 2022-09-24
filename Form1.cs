@@ -3,14 +3,14 @@ using System.Text.RegularExpressions;
 
 namespace Calculator_001
 {
-    public partial class Form1 : Form
+    public partial class Calculator01 : Form
     {
         decimal firstNumber;
         decimal secondNumber;
         decimal totalNumber;
         string oper;
 
-        public Form1()
+        public Calculator01()
         {
             InitializeComponent();
         }
@@ -30,7 +30,6 @@ namespace Calculator_001
                 txtDisplay.Text = txtDisplay.Text + "1";
             }
         }
-
         private void btn2_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text == "0")
@@ -299,6 +298,11 @@ namespace Calculator_001
         }
 
         private void btnPlusOrMinus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Calculator01_Load(object sender, EventArgs e)
         {
 
         }

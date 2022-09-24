@@ -1,6 +1,6 @@
 ﻿namespace Calculator_001
 {
-    partial class Form1
+    partial class Calculator01
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,7 +38,6 @@
             this.btn8 = new System.Windows.Forms.Button();
             this.btn9 = new System.Windows.Forms.Button();
             this.txtDisplay = new System.Windows.Forms.TextBox();
-            this.btn0 = new System.Windows.Forms.Button();
             this.btnDecimal = new System.Windows.Forms.Button();
             this.btnEquals = new System.Windows.Forms.Button();
             this.btnAddition = new System.Windows.Forms.Button();
@@ -49,6 +48,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnClearEntry = new System.Windows.Forms.Button();
             this.btnPlusOrMinus = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btn0 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn1
@@ -113,12 +114,16 @@
             // 
             // btn7
             // 
+            this.btn7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn7.BackColor = System.Drawing.Color.Black;
+            this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn7.Location = new System.Drawing.Point(40, 236);
             this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(75, 23);
+            this.btn7.Size = new System.Drawing.Size(75, 27);
             this.btn7.TabIndex = 6;
             this.btn7.Text = "7";
-            this.btn7.UseVisualStyleBackColor = true;
+            this.btn7.UseVisualStyleBackColor = false;
             this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn8
@@ -149,16 +154,6 @@
             this.txtDisplay.TabIndex = 9;
             this.txtDisplay.Text = "0";
             this.txtDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btn0
-            // 
-            this.btn0.Location = new System.Drawing.Point(40, 372);
-            this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(75, 23);
-            this.btn0.TabIndex = 10;
-            this.btn0.Text = "0";
-            this.btn0.UseVisualStyleBackColor = true;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // btnDecimal
             // 
@@ -261,11 +256,23 @@
             this.btnPlusOrMinus.UseVisualStyleBackColor = true;
             this.btnPlusOrMinus.Click += new System.EventHandler(this.btnPlusOrMinus_Click);
             // 
-            // Form1
+            // btn0
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 450);
+            this.btn0.Location = new System.Drawing.Point(1, 386);
+            this.btn0.Name = "btn0";
+            this.btn0.Size = new System.Drawing.Size(100, 74);
+            this.btn0.TabIndex = 10;
+            this.btn0.Text = "0";
+            this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
+            // 
+            // Calculator01
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.btn0);
             this.Controls.Add(this.btnPlusOrMinus);
             this.Controls.Add(this.btnClearEntry);
             this.Controls.Add(this.btnClear);
@@ -276,7 +283,6 @@
             this.Controls.Add(this.btnAddition);
             this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.btnDecimal);
-            this.Controls.Add(this.btn0);
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.btn9);
             this.Controls.Add(this.btn8);
@@ -287,10 +293,11 @@
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
-            this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Name = "Calculator01";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Roman\'s Calculator";
+            this.Load += new System.EventHandler(this.Calculator01_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,7 +315,6 @@
         private Button btn8;
         private Button btn9;
         private TextBox txtDisplay;
-        private Button btn0;
         private Button btnDecimal;
         private Button btnEquals;
         private Button btnAddition;
@@ -319,5 +325,7 @@
         private Button btnClear;
         private Button btnClearEntry;
         private Button btnPlusOrMinus;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button btn0;
     }
 }
