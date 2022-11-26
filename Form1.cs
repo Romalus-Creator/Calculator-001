@@ -45,156 +45,46 @@ namespace Calculator_001
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "1";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "1";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "1";
-            }
+            updateText("1");
         }
         private void btn2_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "2";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "2";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "2";
-            }
+            updateText("2");
 
         }
         private void btn3_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "3";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "3";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "3";
-            }
+            updateText("3");
 
         }
         private void btn4_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "4";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "4";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "4";
-            }
+            updateText("4");
         }
         private void btn5_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "5";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "5";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "5";
-            }
+            updateText("5");
         }
         private void btn6_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "6";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "6";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "6";
-            }
+            updateText("6");
         }
         private void btn7_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "7";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "7";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "7";
-            }
+            updateText("7");
         }
         private void btn8_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "8";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "8";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "8";
-            }
+            updateText("8");
         }
         private void btn9_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "9";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "9";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "9";
-            }
+            updateText("9");
         }
 
         private void btn0_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = "0";
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = "0";
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + "0";
-            }
+            updateText("0");
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)
@@ -401,6 +291,27 @@ namespace Calculator_001
         private void txtDisplay_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn0_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void updateText(string number)
+        {
+            if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = number;
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = number;
+            }
+            else
+            {
+                txtDisplay.Text = txtDisplay.Text + number;
+            }
         }
     }
 }
