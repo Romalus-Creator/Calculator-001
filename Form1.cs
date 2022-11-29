@@ -10,32 +10,11 @@ namespace Calculator_001
 {
     public partial class Calculator01 : Form
     {
-        private decimal firstNumber;
-        private decimal totalNumber;
-        private decimal secondNumber;
-        private string oper;
-        private Rectangle originalFormSize;
-        private Rectangle txtDisplay_OriginalRectangle;
-        private Rectangle btn1_OriginalRectangle;
-        private Rectangle btn2_OriginalRectangle;
-        private Rectangle btn3_OriginalRectangle;
-        private Rectangle btn4_OriginalRectangle;
-        private Rectangle btn5_OriginalRectangle;
-        private Rectangle btn6_OriginalRectangle;
-        private Rectangle btn7_OriginalRectangle;
-        private Rectangle btn8_OriginalRectangle;
-        private Rectangle btn9_OriginalRectangle;
-        private Rectangle btn0_OriginalRectangle;
-        private Rectangle btnDecimal_OriginalRectangle;
-        private Rectangle btnEquals_OriginalRectangle;
-        private Rectangle btnAddition_OriginalRectangle;
-        private Rectangle btnSubtraction_OriginalRectangle;
-        private Rectangle btnMultiplication_OriginalRectangle;
-        private Rectangle btnDivision_OriginalRectangle;
-        private Rectangle btnBackspace_OriginalRectangle;
-        private Rectangle btnClear_OriginalRectangle;
-        private Rectangle btnClearEntry_OriginalRectangle;
-        private Rectangle btnPlusOrMinus_OriginalRectangle;
+        private decimal firstNumber { get; set; }
+        private decimal totalNumber { get; set; }
+        private decimal secondNumber { get; set; }
+        private string oper { get; set; }
+
 
 
         public Calculator01()
@@ -43,6 +22,7 @@ namespace Calculator_001
             InitializeComponent();
         }
 
+        //digit buttons
         private void btn1_Click(object sender, EventArgs e)
         {
             updateText("1");
@@ -87,10 +67,28 @@ namespace Calculator_001
             updateText("0");
         }
 
+        //display text for the last digit button clicked
+        private void updateText(string number)
+        {
+            if (txtDisplay.Text == "0")
+            {
+                txtDisplay.Text = number;
+            }
+            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
+            {
+                txtDisplay.Text = number;
+            }
+            else
+            {
+                txtDisplay.Text = txtDisplay.Text + number;
+            }
+        }
+
+        //non-digit buttons
         private void btnDecimal_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text.Contains("."))
-                {
+            {
                 txtDisplay.Text = txtDisplay.Text + "";
             }
             else if (txtDisplay.Text == "0")
@@ -138,67 +136,59 @@ namespace Calculator_001
 
         private void btnAddition_Click(object sender, EventArgs e)
         {
-            firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "+";
-            if (totalNumber > 0)
-            {
-                txtDisplay.Text = totalNumber.ToString();
-            }
-            else {
-                txtDisplay.Text = "0";
-            }
+            updateOper();
         }
 
         private void btnSubtraction_Click(object sender, EventArgs e)
         {
-            firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "-";
-            if (totalNumber > 0)
-            {
-                txtDisplay.Text = totalNumber.ToString();
-            }
-            else {
-                    txtDisplay.Text = "0";
-            }
+            updateOper();
         }
 
         private void btnMultiplication_Click(object sender, EventArgs e)
         {
-            firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "*";
-            if (totalNumber > 0)
-            {
-                        txtDisplay.Text = totalNumber.ToString();
-            }
-            else {
-                        txtDisplay.Text = "0";
-            }
+            updateOper();
         }
 
         private void btnDivision_Click(object sender, EventArgs e)
         {
-            firstNumber = decimal.Parse(txtDisplay.Text);
             oper = "/";
-            if (totalNumber > 0)
-            {
-                            txtDisplay.Text = totalNumber.ToString();
-            }
-            else {
-                   txtDisplay.Text = "0";
-            }
+            updateOper();
         }
 
+        //store totalNumber variable and update txtDisplay back to "0"
+        private void updateOper()
+        {
+            firstNumber = decimal.Parse(txtDisplay.Text);
+            if (totalNumber > 0)
+            {
+                txtDisplay.Text = totalNumber.ToString();
+            }
+            else
+            {
+                txtDisplay.Text = "0";
+            }
+        }
         private void btnBackspace_Click(object sender, EventArgs e)
         {
             // need to make the backspace button read the txtDisplay.Text, then subtract the far right char. good luck https://stackoverflow.com/questions/3566830/what-method-in-the-string-class-returns-only-the-first-n-characters
 
-            string substring = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
-            txtDisplay.Text = substring;
+            if (txtDisplay.Text.Length > 1)
+            {
+                string substring = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
+                txtDisplay.Text = substring;
+            }
+            else
+            {
+                txtDisplay.Text = "0";
+            }
         }
 
         /*Both buttons are a way to erase or clear an entry. 
-         * The CE (clear entry) button clears the most recent entry 
-         * while the C (clear) button will clear all input to the calculator. */
+          The CE (clear entry) button clears the most recent entry 
+          while the C (clear) button will clear all input to the calculator. */
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -220,7 +210,31 @@ namespace Calculator_001
 
         }
 
-  
+
+        //resize the form
+        private Rectangle originalFormSize;
+        private Rectangle txtDisplay_OriginalRectangle;
+        private Rectangle btn1_OriginalRectangle;
+        private Rectangle btn2_OriginalRectangle;
+        private Rectangle btn3_OriginalRectangle;
+        private Rectangle btn4_OriginalRectangle;
+        private Rectangle btn5_OriginalRectangle;
+        private Rectangle btn6_OriginalRectangle;
+        private Rectangle btn7_OriginalRectangle;
+        private Rectangle btn8_OriginalRectangle;
+        private Rectangle btn9_OriginalRectangle;
+        private Rectangle btn0_OriginalRectangle;
+        private Rectangle btnDecimal_OriginalRectangle;
+        private Rectangle btnEquals_OriginalRectangle;
+        private Rectangle btnAddition_OriginalRectangle;
+        private Rectangle btnSubtraction_OriginalRectangle;
+        private Rectangle btnMultiplication_OriginalRectangle;
+        private Rectangle btnDivision_OriginalRectangle;
+        private Rectangle btnBackspace_OriginalRectangle;
+        private Rectangle btnClear_OriginalRectangle;
+        private Rectangle btnClearEntry_OriginalRectangle;
+        private Rectangle btnPlusOrMinus_OriginalRectangle;
+
         private void Calculator01_Load(object sender, EventArgs e)
         {
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
@@ -235,16 +249,16 @@ namespace Calculator_001
             btn8_OriginalRectangle = new Rectangle(btn8.Location.X, btn8.Location.Y, btn8.Width, btn8.Height);
             btn9_OriginalRectangle = new Rectangle(btn9.Location.X, btn9.Location.Y, btn9.Width, btn9.Height);
             btn0_OriginalRectangle = new Rectangle(btn0.Location.X, btn0.Location.Y, btn0.Width, btn0.Height);
-            btnDecimal_OriginalRectangle        = new Rectangle(btnDecimal.Location.X, btnDecimal.Location.Y, btnDecimal.Width, btnDecimal.Height);
-            btnEquals_OriginalRectangle         = new Rectangle(btnEquals.Location.X, btnEquals.Location.Y, btnEquals.Width, btnEquals.Height);
-            btnAddition_OriginalRectangle       = new Rectangle(btnAddition.Location.X, btnAddition.Location.Y, btnAddition.Width, btnAddition.Height);
-            btnSubtraction_OriginalRectangle    = new Rectangle(btnSubtraction.Location.X, btnSubtraction.Location.Y, btnSubtraction.Width, btnSubtraction.Height);
+            btnDecimal_OriginalRectangle = new Rectangle(btnDecimal.Location.X, btnDecimal.Location.Y, btnDecimal.Width, btnDecimal.Height);
+            btnEquals_OriginalRectangle = new Rectangle(btnEquals.Location.X, btnEquals.Location.Y, btnEquals.Width, btnEquals.Height);
+            btnAddition_OriginalRectangle = new Rectangle(btnAddition.Location.X, btnAddition.Location.Y, btnAddition.Width, btnAddition.Height);
+            btnSubtraction_OriginalRectangle = new Rectangle(btnSubtraction.Location.X, btnSubtraction.Location.Y, btnSubtraction.Width, btnSubtraction.Height);
             btnMultiplication_OriginalRectangle = new Rectangle(btnMultiplication.Location.X, btnMultiplication.Location.Y, btnMultiplication.Width, btnMultiplication.Height);
-            btnDivision_OriginalRectangle       = new Rectangle(btnDivision.Location.X, btnDivision.Location.Y, btnDivision.Width, btnDivision.Height);
-            btnBackspace_OriginalRectangle      = new Rectangle(btnBackspace.Location.X, btnBackspace.Location.Y, btnBackspace.Width, btnBackspace.Height);
-            btnClear_OriginalRectangle          = new Rectangle(btnClear.Location.X, btnClear.Location.Y, btnClear.Width, btnClear.Height);
-            btnClearEntry_OriginalRectangle     = new Rectangle(btnClearEntry.Location.X, btnClearEntry.Location.Y, btnClearEntry.Width, btnClearEntry.Height);
-            btnPlusOrMinus_OriginalRectangle    = new Rectangle(btnPlusOrMinus.Location.X, btnPlusOrMinus.Location.Y, btnPlusOrMinus.Width, btnPlusOrMinus.Height);
+            btnDivision_OriginalRectangle = new Rectangle(btnDivision.Location.X, btnDivision.Location.Y, btnDivision.Width, btnDivision.Height);
+            btnBackspace_OriginalRectangle = new Rectangle(btnBackspace.Location.X, btnBackspace.Location.Y, btnBackspace.Width, btnBackspace.Height);
+            btnClear_OriginalRectangle = new Rectangle(btnClear.Location.X, btnClear.Location.Y, btnClear.Width, btnClear.Height);
+            btnClearEntry_OriginalRectangle = new Rectangle(btnClearEntry.Location.X, btnClearEntry.Location.Y, btnClearEntry.Width, btnClearEntry.Height);
+            btnPlusOrMinus_OriginalRectangle = new Rectangle(btnPlusOrMinus.Location.X, btnPlusOrMinus.Location.Y, btnPlusOrMinus.Width, btnPlusOrMinus.Height);
 
         }
 
@@ -265,7 +279,7 @@ namespace Calculator_001
 
         private void Calculator01_Resize(object sender, EventArgs e)
         {
-            resizeControl(txtDisplay_OriginalRectangle,txtDisplay);
+            resizeControl(txtDisplay_OriginalRectangle, txtDisplay);
             resizeControl(btn1_OriginalRectangle, btn1);
             resizeControl(btn2_OriginalRectangle, btn2);
             resizeControl(btn3_OriginalRectangle, btn3);
@@ -298,20 +312,6 @@ namespace Calculator_001
 
         }
 
-        private void updateText(string number)
-        {
-            if (txtDisplay.Text == "0")
-            {
-                txtDisplay.Text = number;
-            }
-            else if (decimal.Parse(txtDisplay.Text) == totalNumber)
-            {
-                txtDisplay.Text = number;
-            }
-            else
-            {
-                txtDisplay.Text = txtDisplay.Text + number;
-            }
-        }
+
     }
 }
