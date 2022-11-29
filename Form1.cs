@@ -11,11 +11,11 @@ namespace Calculator_001
     public partial class Calculator01 : Form
     {
         private decimal firstNumber { get; set; }
-        private decimal totalNumber { get; set; }
         private decimal secondNumber { get; set; }
+        private decimal totalNumber { get; set; }
         private string oper { get; set; }
 
-
+        
 
         public Calculator01()
         {
@@ -27,36 +27,44 @@ namespace Calculator_001
         {
             updateText("1");
         }
+
         private void btn2_Click(object sender, EventArgs e)
         {
             updateText("2");
 
         }
+
         private void btn3_Click(object sender, EventArgs e)
         {
             updateText("3");
 
         }
+
         private void btn4_Click(object sender, EventArgs e)
         {
             updateText("4");
         }
+
         private void btn5_Click(object sender, EventArgs e)
         {
             updateText("5");
         }
+
         private void btn6_Click(object sender, EventArgs e)
         {
             updateText("6");
         }
+
         private void btn7_Click(object sender, EventArgs e)
         {
             updateText("7");
         }
+
         private void btn8_Click(object sender, EventArgs e)
         {
             updateText("8");
         }
+
         private void btn9_Click(object sender, EventArgs e)
         {
             updateText("9");
@@ -66,6 +74,8 @@ namespace Calculator_001
         {
             updateText("0");
         }
+
+
 
         //display text for the last digit button clicked
         private void updateText(string number)
@@ -83,6 +93,8 @@ namespace Calculator_001
                 txtDisplay.Text = txtDisplay.Text + number;
             }
         }
+
+
 
         //non-digit buttons
         private void btnDecimal_Click(object sender, EventArgs e)
@@ -171,9 +183,10 @@ namespace Calculator_001
                 txtDisplay.Text = "0";
             }
         }
+       
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            // need to make the backspace button read the txtDisplay.Text, then subtract the far right char. good luck https://stackoverflow.com/questions/3566830/what-method-in-the-string-class-returns-only-the-first-n-characters
+            // DONE - need to make the backspace button read the txtDisplay.Text, then subtract the far right char. good luck https://stackoverflow.com/questions/3566830/what-method-in-the-string-class-returns-only-the-first-n-characters
 
             if (txtDisplay.Text.Length > 1)
             {
@@ -186,10 +199,9 @@ namespace Calculator_001
             }
         }
 
-        /*Both buttons are a way to erase or clear an entry. 
-          The CE (clear entry) button clears the most recent entry 
-          while the C (clear) button will clear all input to the calculator. */
 
+
+        //Both buttons are a way to erase or clear an entry. The CE (clear entry) button clears the most recent entry while the C (clear) button will clear all input to the calculator.
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtDisplay.Text = "0";
@@ -201,8 +213,6 @@ namespace Calculator_001
         private void btnClearEntry_Click(object sender, EventArgs e)
         {
             txtDisplay.Text = "0";
-            secondNumber = 0;
-            totalNumber = 0;
         }
 
         private void btnPlusOrMinus_Click(object sender, EventArgs e)

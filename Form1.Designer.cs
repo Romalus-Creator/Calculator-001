@@ -309,7 +309,7 @@
             this.btnBackspace.Name = "btnBackspace";
             this.btnBackspace.Size = new System.Drawing.Size(100, 74);
             this.btnBackspace.TabIndex = 17;
-            this.btnBackspace.Text = "x";
+            this.btnBackspace.Text = "[del]";
             this.btnBackspace.UseVisualStyleBackColor = false;
             this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
             // 
