@@ -217,11 +217,23 @@ namespace Calculator_001
 
         private void btnPlusOrMinus_Click(object sender, EventArgs e)
         {
+        //TO DO --- I need to see how to make the memory clear these variables so each time I click the btnPlusOrMinus, the variables are brand new. ALSO add when "0" is the number condition.    
+            string SubStr = txtDisplay.Text.Substring(0);
+            bool IsSubStr = SubStr.Equals("-");
+            string SubStr2 = txtDisplay.Text.Substring(1, txtDisplay.Text.Length - 1);
 
+            if (IsSubStr == true)
+            {
+                txtDisplay.Text = SubStr2.ToString();
+            }
+            else
+            {
+                txtDisplay.Text = "-" + SubStr.ToString();
+            }
         }
 
 
-        //resize the form
+        /* //resize the form
         private Rectangle originalFormSize;
         private Rectangle txtDisplay_OriginalRectangle;
         private Rectangle btn1_OriginalRectangle;
@@ -274,8 +286,8 @@ namespace Calculator_001
 
         private void resizeControl(Rectangle r, Control c)
         {
-            float xRatio = (float)(this.Width) / (float)(originalFormSize.Width);
-            float yRatio = (float)(this.Height) / (float)(originalFormSize.Height);
+            float xRatio = this.Width / (float)(originalFormSize.Width);
+            float yRatio = this.Height / (float)(originalFormSize.Height);
 
             int newX = (int)(r.Location.X * xRatio);
             int newY = (int)(r.Location.Y * yRatio);
@@ -311,8 +323,10 @@ namespace Calculator_001
             resizeControl(btnClearEntry_OriginalRectangle, btnClearEntry);
             resizeControl(btnPlusOrMinus_OriginalRectangle, btnPlusOrMinus);
         }
+        */
 
-        private void txtDisplay_TextChanged(object sender, EventArgs e)
+
+        private void TxtDisplay_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -322,6 +336,9 @@ namespace Calculator_001
 
         }
 
+        private void Calculator01_Resize(object sender, EventArgs e)
+        {
 
+        }
     }
 }
